@@ -1,0 +1,29 @@
+.slanted {
+  width: 300px;
+  height: 200px;
+  background: linear-gradient(45deg,
+      red 0%,
+      red 33.3%,
+      blue 33.3%,
+      blue 66.6%,
+      green 66.6%,
+      green 100%);
+  border: 2px solid black;
+}
+.testimonials-swiper {
+          width: 100%;
+          height: auto;
+        }
+        
+        .testimonials-swiper .swiper-slide {
+          height: auto;
+          display: flex;
+        }
+        
+        .testimonials-swiper .swiper-wrapper {
+          align-items: stretch;
+        }
+
+        .testimonials-swiper .swiper-slide > div {
+          width: 100%;
+        }

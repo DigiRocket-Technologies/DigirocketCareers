@@ -1,0 +1,127 @@
+import  { useState } from "react";
+import { Download, PhoneCall } from "lucide-react";
+const GetBrochure = () => {
+  const [selectedCourse, setSelectedCourse] = useState(
+    "Annual Program in Digital Marketing"
+  );
+
+  const courses = [
+    "Data Science, AI & AI Automation",
+     "Digital Marketing Specialisation",
+  ];
+  return (
+    <>
+      <div className="flex w-[75%] mt-20 mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+        {/* Left side - Form content */}
+        <div className="p-8 flex flex-col justify-between w-full md:w-1/2">
+          {/* Logo */}
+          <div className="mb-6">
+            <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                <div className="transform rotate-45 w-4 h-4 border-t-2 border-r-2 border-black"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Main content */}
+          <div>
+            <h2 className="text-4xl font-bold mb-6 text-gray-800">
+              Confused? Why not let us help!
+            </h2>
+            <p className="text-gray-600 mb-8 text-xl">
+              Get in touch with our Friendly Team. Speak to us for Batches, fee
+              and curriculum.
+            </p>
+
+            {/* Form */}
+            <div className="mb-8">
+              <label className="block text-gray-700 mb-2 text-xl">
+                Select Course*
+              </label>
+              <div className="relative">
+                <select
+                  className="w-full border text-xl border-gray-300 rounded px-4 py-3 appearance-none bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#C9F21D]"
+                  value={selectedCourse}
+                  onChange={(e) => setSelectedCourse(e.target.value)}
+                >
+                  {courses.map((course) => (
+                    <option className="text-lg" key={course} value={course}>
+                      {course}
+                    </option>
+                  ))}
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg
+                    className="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="flex justify-center items-center">
+              <button className="w-[60%] mx-auto text-xl bg-[#C9F21D] hover:bg-[#C9F21D] text-white font-semibold py-3 px-3 rounded transition duration-300">
+                Get Brochure
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Right side - Image */}
+        <div className="hidden md:block md:w-1/2 bg-gray-100 relative">
+          <div className="absolute top-0 right-0 w-40 h-40 bg-[#C9F21D] rounded-full transform translate-x-1/2 -translate-y-1/2 opacity-90"></div>
+
+          <div className="h-full flex items-center justify-center">
+            <img
+              src="/img/home/brochure-girl.jpg"
+              alt="Student pointing at educational content"
+              className="h-full object-cover"
+            />
+          </div>
+
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#C9F21D] rounded-full transform translate-x-1/3 translate-y-1/3 opacity-90"></div>
+        </div>
+      </div>
+      <section className="bg-white mt-20 py-8">
+        <div className="w-[90%] mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-6">
+          {/* Left: Logo and Text */}
+          <div className="flex flex-col gap-y-4 md:flex-row items-center gap-4">
+            <img
+              src="/img/home/logo.png"
+              alt="DigiRocket Logo"
+              className="h-12 w-auto object-contain"
+            />
+            <p className="text-gray-700 text-lg max-w-sm text-left">
+              DigiRocket offers different courses in Digital Marketing based on
+              your Preferences, Time and Career requirements.
+            </p>
+          </div>
+
+          {/* Right: Buttons */}
+          <div className="flex gap-4 flex-wrap">
+            <a
+              href="/brochure.pdf"
+              className="flex items-center gap-2 bg-[#c9f21d] text-white px-4 py-3 rounded hover:bg-[#C9F21D] transition"
+            >
+              <Download className="text-lg" />
+              <span className="font-semibold text-lg">Download Brochure</span>
+            </a>
+            <a
+              href="/contact"
+              className="flex items-center gap-2 bg-gray-900 text-white px-5 py-3 rounded hover:bg-gray-800 transition"
+            >
+              <PhoneCall className="text-lg" />
+              <span className="font-semibold text-lg">Contact Us</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default GetBrochure;
