@@ -86,40 +86,6 @@ const GetBrochure = () => {
           <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#C9F21D] rounded-full transform translate-x-1/3 translate-y-1/3 opacity-90"></div>
         </div>
       </div>
-      <section className="bg-white mt-20 py-8">
-        <div className="w-[90%] mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-6">
-          {/* Left: Logo and Text */}
-          <div className="flex flex-col gap-y-4 md:flex-row items-center gap-4">
-            <img
-              src="/img/home/logo.png"
-              alt="DigiRocket Logo"
-              className="h-12 w-auto object-contain"
-            />
-            <p className="text-gray-700 text-lg max-w-sm text-left">
-              DigiRocket offers different courses in Digital Marketing based on
-              your Preferences, Time and Career requirements.
-            </p>
-          </div>
-
-          {/* Right: Buttons */}
-          <div className="flex gap-4 flex-wrap">
-            <a
-              href="/brochure.pdf"
-              className="flex items-center gap-2 bg-[#c9f21d] text-white px-4 py-3 rounded hover:bg-[#C9F21D] transition"
-            >
-              <Download className="text-lg" />
-              <span className="font-semibold text-lg">Download Brochure</span>
-            </a>
-            <a
-              href="/contact"
-              className="flex items-center gap-2 bg-gray-900 text-white px-5 py-3 rounded hover:bg-gray-800 transition"
-            >
-              <PhoneCall className="text-lg" />
-              <span className="font-semibold text-lg">Contact Us</span>
-            </a>
-          </div>
-        </div>
-      </section>
     </>
   );
 };
