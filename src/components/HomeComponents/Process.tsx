@@ -1,11 +1,13 @@
-const WhyChoose = () => {
+
+
+const Process = () => {
   return (
     <section className="bg-gray-50 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Main Heading */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-[#C9F21D] mb-6">
-            WHY CHOOSE SS PRODIGY?
+            OUR LEARNING PROCESS
           </h2>
         </div>
 
@@ -19,11 +21,11 @@ const WhyChoose = () => {
               </div>
             </div>
             <h3 className="text-xl lg:text-2xl font-bold text-gray-800 text-center mb-4">
-              GET CERTIFIED
+              2 Weeks of Theory
             </h3>
             <p className="text-gray-600 text-lg lg:text-xl text-center leading-relaxed">
-              Earn a recognized AI certificate that strengthens your resume and
-              boosts your job prospects.
+              Build a strong foundation with expert-led classes covering key AI
+              concepts and tools.
             </p>
           </div>
 
@@ -35,11 +37,11 @@ const WhyChoose = () => {
               </div>
             </div>
             <h3 className="text-xl lg:text-2xl font-bold text-gray-800 text-center mb-4">
-              Learn from Experts
+              Hands-On International Projects
             </h3>
             <p className="text-gray-600 text-lg lg:text-xl text-center leading-relaxed">
-              Train with professionals who work in AI daily and know what the
-              industry really needs.
+              Apply your skills on real-world global projects to gain practical,
+              job-ready experience.
             </p>
           </div>
 
@@ -51,17 +53,25 @@ const WhyChoose = () => {
               </div>
             </div>
             <h3 className="text-xl lg:text-2xl font-bold text-gray-800 text-center mb-4">
-              Build Real Projects
+              Guaranteed Placement Assistance
             </h3>
             <p className="text-gray-600 text-lg lg:text-xl text-center leading-relaxed">
-              Gain hands-on experience by working on real-world projects you can
-              showcase to employers.
+              Get support with resume building, mock interviews, and direct
+              connections to hiring partners.
             </p>
           </div>
         </div>
       </div>
+      <div className="w-[60%] text-center text-xl mt-6 mx-auto">
+          Are you ready? Join our Digital Marketing Institute now. 
+     </div>
+     <div className="flex justify-center item-center mt-4">
+            <button className="bg-[#C9F21D] hover:bg-[#C9F21D] cursor-pointer px-4 py-2 text-[black] text-lg rounded-lg font-medium transition-colors">
+             START WITH FREE DEMO
+            </button>
+     </div>
     </section>
   );
 };
 
-export default WhyChoose;
+export default Process;

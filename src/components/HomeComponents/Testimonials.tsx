@@ -1,8 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Keyboard, Navigation } from "swiper/modules";
 import { Star, } from "lucide-react";
-import "swiper/css";
-import "swiper/css/navigation";
 
 const Testimonials = () => {
   const testimonials = [
@@ -59,18 +57,13 @@ const Testimonials = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           {/* Main Heading */}
           <h2 className="text-black text-3xl md:text-4xl lg:text-6xl font-bold mb-8 leading-tight">
-            What Our Trainees Have To Say
+            TESTIMONIALS
           </h2>
 
-          {/* Description */}
-          <p className="text-black text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-            Our Courses have been receiving an average rating of 9.4/10 from our
-            course participants. Till date, DigiRocket has trained more than
-            75,000+ individuals.
-          </p>
+        
         </div>
       </section>
-      <section className="py-16 px-4 relative">
+      <section className="px-4 relative">
         <div className="max-w-7xl mx-auto">
           {/* Navigation Buttons */}
           {/* <div className="flex justify-end mb-8 space-x-4">

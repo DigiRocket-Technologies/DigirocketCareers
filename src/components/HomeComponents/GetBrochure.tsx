@@ -1,13 +1,15 @@
-import  { useState } from "react";
+import { useState } from "react";
 
 const GetBrochure = () => {
   const [selectedCourse, setSelectedCourse] = useState(
-    "Annual Program in Digital Marketing"
+    "LLM Master Course: Learn all about LLMs",
   );
 
   const courses = [
-    "Data Science, AI & AI Automation",
-     "Digital Marketing Specialisation",
+    "LLM Master Course: Learn all about LLMs",
+    "Agentic AI: Learn process Automation",
+    "Predictive analysis using data science and ai",
+    "Mastering Generative AI: images, content and it's application",
   ];
   return (
     <>

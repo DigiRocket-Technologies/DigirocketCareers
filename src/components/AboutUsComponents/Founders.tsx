@@ -46,7 +46,7 @@ const Founders = () => {
               </div>
 
               {/* Hover effect overlay */}
-              <div className="absolute inset-0 bg-[#C9F21D]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+             
             </div>
           ))}
         </div>
