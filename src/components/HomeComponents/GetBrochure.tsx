@@ -1,5 +1,5 @@
 import  { useState } from "react";
-import { Download, PhoneCall } from "lucide-react";
+
 const GetBrochure = () => {
   const [selectedCourse, setSelectedCourse] = useState(
     "Annual Program in Digital Marketing"
