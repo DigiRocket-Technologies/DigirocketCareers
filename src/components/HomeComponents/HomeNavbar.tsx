@@ -29,20 +29,23 @@ const HomeNavbar = () => {
       <div className="px-4 py-6 border-b-[white] border-b-[1px] shadow-md">
         <div className="w-[90%] mx-auto flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center">
-            <div className="flex items-center space-x-2">
-              <img src="/img/home/logo.png" className="w-[200px]" alt="" />
+          <Link to="/">
+            {" "}
+            <div className="flex items-center">
+              <div className="flex items-center space-x-2">
+                <img src="/img/home/logo.png" className="w-[200px]" alt="" />
+              </div>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center text-lg space-x-8">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="hover:text-[#C9F21D] transition-colors font-medium"
             >
               HOME
-            </a>
+            </Link>
             <Link
               to="/about-us"
               className="hover:text-[#C9F21D] transition-colors font-medium"
@@ -73,12 +76,12 @@ const HomeNavbar = () => {
               {isDropdownOpen && (
                 <div className="absolute top-full left-0  w-64 bg-white shadow-lg rounded-lg border border-gray-200 z-50">
                   <div className="py-2">
-                    <a
-                      href="#"
+                    <Link
+                      to="/"
                       className="block px-4 py-3 text-sm font-medium hover:bg-gray-50 hover:text-[#C9F21D] transition-colors"
                     >
                       LLM Master Course: Learn all about LLMs
-                    </a>
+                    </Link>
                     <a
                       href="#"
                       className="block px-4 py-3 text-sm font-medium hover:bg-gray-50 hover:text-[#C9F21D] transition-colors"
