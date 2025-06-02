@@ -5,7 +5,6 @@ import WhyChoose from "../components/HomeComponents/WhyChoose";
 import AwardWinning from "../components/HomeComponents/AwardWinning";
 import Programs from "../components/HomeComponents/Programs";
 import Testimonials from "../components/HomeComponents/Testimonials";
-import Clients from "../components/HomeComponents/Clients";
 import Footer from "../components/Footer";
 
 const Home = () => {
@@ -17,7 +16,6 @@ const Home = () => {
       <AwardWinning />
       <Programs />
       <Testimonials />
-      <Clients />
       <GetBrochure />
       <Footer />
     </>
