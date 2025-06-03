@@ -31,7 +31,7 @@ const WhyChoose = () => {
           <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="flex justify-center mb-6">
               <div className="w-16 h-16  rounded-full flex items-center justify-center">
-                <img src="/img/home/award winning1.svg" alt="" />
+                <img src="/img/home/learn from expert.svg" alt="" />
               </div>
             </div>
             <h3 className="text-xl lg:text-2xl font-bold text-gray-800 text-center mb-4">
@@ -47,7 +47,7 @@ const WhyChoose = () => {
           <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="flex justify-center mb-6">
               <div className="w-16 h-16  rounded-full flex items-center justify-center">
-                <img src="/img/home/in depth modules1.svg" alt="" />
+                <img src="/img/home/build real projects.svg" alt="" />
               </div>
             </div>
             <h3 className="text-xl lg:text-2xl font-bold text-gray-800 text-center mb-4">

@@ -77,41 +77,41 @@ const HomeNavbar = () => {
                 <div className="absolute top-full left-0  w-64 bg-white shadow-lg rounded-lg border border-gray-200 z-50">
                   <div className="py-2">
                     <Link
-                      to="/"
+                      to="/course/llm-master"
                       className="block px-4 py-3 text-sm font-medium hover:bg-gray-50 hover:text-[#C9F21D] transition-colors"
                     >
                       LLM Master Course: Learn all about LLMs
                     </Link>
-                    <a
-                      href="#"
+                    <Link
+                      to="/course/agentic-ai"
                       className="block px-4 py-3 text-sm font-medium hover:bg-gray-50 hover:text-[#C9F21D] transition-colors"
                     >
                       Agentic AI: Learn process Automation
-                    </a>
-                    <a
-                      href="#"
+                    </Link>
+                    <Link
+                      to="/course/predictive-analysis-using-data-science-and-ai"
                       className="block px-4 py-3 text-sm font-medium hover:bg-gray-50 hover:text-[#C9F21D] transition-colors"
                     >
                       Predictive analysis using data science and ai
-                    </a>
-                    <a
-                      href="#"
+                    </Link>
+                    <Link
+                      to="/course/mastering-generative-ai"
                       className="block px-4 py-3 text-sm font-medium hover:bg-gray-50 hover:text-[#C9F21D] transition-colors"
                     >
                       Mastering Generative AI: images, content and it's
                       application
-                    </a>
+                    </Link>
                   </div>
                 </div>
               )}
             </div>
 
-            <a
-              href="#"
+            <Link
+              to="/contact-us"
               className="hover:text-[#C9F21D] transition-colors font-medium"
             >
               CONTACT US
-            </a>
+            </Link>
           </div>
 
           {/* Right side buttons */}
@@ -135,13 +135,13 @@ const HomeNavbar = () => {
           <div className="lg:hidden mt-4 pb-4 border-t border-gray-700">
             <div className="flex flex-col space-y-4 mt-4">
               <a
-                href="#"
+                href="/"
                 className="hover:text-[#C9F21D] transition-colors font-medium py-2"
               >
                 HOME
               </a>
               <Link
-                to="about-us"
+                to="/about-us"
                 className="hover:text-[#C9F21D] transition-colors font-medium py-2"
               >
                 ABOUT US
@@ -165,41 +165,41 @@ const HomeNavbar = () => {
                 {/* Mobile Dropdown Items */}
                 {isDropdownOpen && (
                   <div className="ml-4 mt-2 space-y-2">
-                    <a
-                      href="#"
+                    <Link
+                      to="/course/llm-master"
                       className="block py-2 text-sm hover:text-[#C9F21D] transition-colors"
                     >
                       LLM Master Course: Learn all about LLMs
-                    </a>
-                    <a
-                      href="#"
+                    </Link>
+                    <Link
+                      to="/course/agentic-ai"
                       className="block py-2 text-sm hover:text-[#C9F21D] transition-colors"
                     >
                       Agentic AI: Learn process Automation
-                    </a>
-                    <a
-                      href="#"
+                    </Link>
+                    <Link
+                      to="/predictive-analysis-using-data-science-and-ai"
                       className="block py-2 text-sm hover:text-[#C9F21D] transition-colors"
                     >
                       Predictive analysis using Data Science and AI
-                    </a>
-                    <a
-                      href="#"
+                    </Link>
+                    <Link
+                      to="/course/mastering-generative-ai"
                       className="block py-2 text-sm hover:text-[#C9F21D] transition-colors"
                     >
                       Mastering Generative AI: images, content and it's
                       application
-                    </a>
+                    </Link>
                   </div>
                 )}
               </div>
 
-              <a
-                href="#"
+              <Link
+                to="/contact-us"
                 className="hover:text-[#C9F21D] transition-colors font-medium py-2"
               >
                 CONTACT US
-              </a>
+              </Link>
 
               {/* Mobile contact info */}
               <div className="md:hidden flex items-center space-x-2 py-2 text-sm text-gray-300">

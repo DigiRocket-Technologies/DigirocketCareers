@@ -1,10 +1,10 @@
 import { CheckCircle, Clock, Code, Cog, Database, Laptop, Monitor, Users } from "lucide-react";
-import HomeNavbar from "../components/HomeComponents/HomeNavbar";
-import Course from "../components/ProgramComponents/Course";
-import Skills from "../components/ProgramComponents/Skills";
-import { useState } from "react";
-import Testimonials from "../components/HomeComponents/Testimonials";
-import Footer from "../components/Footer";
+import HomeNavbar from "../../components/HomeComponents/HomeNavbar";
+import Course from "../../components/ProgramComponents/Course";
+import Skills from "../../components/ProgramComponents/Skills";
+import { useEffect, useState } from "react";
+import Testimonials from "../../components/HomeComponents/Testimonials";
+import Footer from "../../components/Footer";
 
 const LLMMaster = () => {
   const [activeSection, setActiveSection] = useState('capstone');
@@ -51,6 +51,11 @@ const LLMMaster = () => {
     { id: 'assessment', label: 'Assessment', icon: <Users className="w-5 h-5" /> },
     { id: 'prerequisites', label: 'Prerequisites', icon: <Code className="w-5 h-5" /> },
   ];
+
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
+  
   return (
     <>
       <HomeNavbar />
@@ -70,7 +75,7 @@ const LLMMaster = () => {
         </div>
       </div>
       <Course />
-      <Skills />
+      <Skills start={0} end={8} />
       <div className="min-h-screen bg-white text-gray-900">
       {/* Header */}
       <div className="ext-white py-16">

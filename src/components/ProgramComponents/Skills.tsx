@@ -1,47 +1,11 @@
-const Skills = () => {
-  const skills = [
-    {
-      id: 1,
-      name: "Prompt Engineering",
-      icon: "/img/home/certified1.svg",
-    },
-    {
-      id: 2,
-      name: "LLM Workflow Automation",
-      icon: "/img/home/certified1.svg",
-    },
-    {
-      id: 3,
-      name: "RAG System Development",
-      icon: "/img/home/certified1.svg",
-    },
-    {
-      id: 4,
-      name: "Fine-Tuning LLMs",
-      icon: "/img/home/certified1.svg",
-    },
-    {
-      id: 5,
-      name: "Data Engineering for AI",
-      icon: "/img/home/certified1.svg",
-    },
-    {
-      id: 6,
-      name: "Vector Database Management",
-      icon: "/img/home/certified1.svg",
-    },
-    {
-      id: 7,
-      name: "API Integration with LLMs",
-      icon: "/img/home/certified1.svg",
-    },
-    {
-      id: 8,
-      name: "LLM-Powered Application Development",
-      icon: "/img/home/certified1.svg",
-    },
-  ];
+import skills from "../../assets/jsonData/skills.json"
 
+type SkillsProps = {
+  start: number;
+  end: number;
+};
+
+const Skills = ({start,end}:SkillsProps) => {
   return (
     <section className="bg-gray-50 py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -54,7 +18,7 @@ const Skills = () => {
 
         {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {skills.map((skill) => (
+          {skills.slice(start,end).map((skill) => (
             <div
               key={skill.id}
               className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer border-2 border-transparent hover:border-[#C9F21D]"

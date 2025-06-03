@@ -1,14 +1,16 @@
 import Footer from "../components/Footer";
-import Partner from "../components/AboutUsComponents/Partner";
 import HomeNavbar from "../components/HomeComponents/HomeNavbar";
 import Founders from "../components/AboutUsComponents/Founders";
+import HeroSection from "../components/AboutUsComponents/HeroSection";
+import OurJourney from "../components/AboutUsComponents/OurJourney";
 
 const About = () => {
   return (
     <>
       <HomeNavbar />
-      <Partner />
+      <HeroSection/>
       <Founders/>
+      <OurJourney/>
       <Footer />
     </>
   );

@@ -1,11 +1,17 @@
 import {
   ChevronRight,
- 
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+
 const Programs = () => {
+
+  const navigate=useNavigate();
+
   return (
     <>
       <section className="bg-gray-50 py-16 px-4">
+        
         <div className="max-w-6xl mx-auto">
           {/* Header Section */}
           <div className="text-center mb-16">
@@ -22,7 +28,7 @@ const Programs = () => {
           {/* Program Cards */}
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Data Science Card */}
-            <div className="group relative min-h-[300px] bg-gray-800 rounded-2xl p-8 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
+            <div onClick={()=>navigate("/course/llm-master")} className="group relative min-h-[300px] bg-gray-800 rounded-2xl p-8 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#C9F21D] rounded-full transform translate-x-8 -translate-y-8"></div>
@@ -48,7 +54,7 @@ const Programs = () => {
             </div>
 
             {/* Digital Marketing Card */}
-            <div className="group relative min-h-[300px] bg-[#C9F21D] rounded-2xl p-8 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
+            <div onClick={()=>navigate("/course/agentic-ai")} className="group relative min-h-[300px] bg-[#C9F21D] rounded-2xl p-8 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full transform translate-x-8 -translate-y-8"></div>
@@ -75,7 +81,7 @@ const Programs = () => {
           </div>
           <div className="grid mt-6 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Data Science Card */}
-            <div className="group  relative min-h-[300px] bg-gray-800 rounded-2xl p-8 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
+            <div onClick={()=>navigate("/course/predictive-analysis-using-data-science-and-ai")} className="group  relative min-h-[300px] bg-gray-800 rounded-2xl p-8 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#C9F21D] rounded-full transform translate-x-8 -translate-y-8"></div>
@@ -102,7 +108,7 @@ const Programs = () => {
             </div>
 
             {/* Digital Marketing Card */}
-            <div className="group  relative min-h-[300px] bg-[#C9F21D] rounded-2xl p-8 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
+            <div onClick={()=>navigate("/course/mastering-generative-ai")} className="group  relative min-h-[300px] bg-[#C9F21D] rounded-2xl p-8 overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer">
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full transform translate-x-8 -translate-y-8"></div>

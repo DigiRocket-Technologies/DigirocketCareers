@@ -1,0 +1,160 @@
+ [
+    {
+      "id": 1,
+      "name": "Prompt Engineering",
+      "icon": "/img/home/certified1.svg"
+    },
+    {
+      "id": 2,
+      "name": "LLM Workflow Automation",
+      "icon": "/img/home/certified1.svg"
+    },
+    {
+      "id": 3,
+      "name": "RAG System Development",
+      "icon": "/img/home/certified1.svg"
+    },
+    {
+      "id": 4,
+      "name": "Fine-Tuning LLMs",
+      "icon": "/img/home/certified1.svg"
+    },
+    {
+      "id": 5,
+      "name": "Data Engineering for AI",
+      "icon": "/img/home/certified1.svg"
+    },
+    {
+      "id": 6,
+      "name": "Vector Database Management",
+      "icon": "/img/home/certified1.svg"
+    },
+    {
+      "id": 7,
+      "name": "API Integration with LLMs",
+      "icon": "/img/home/certified1.svg"
+    },
+    {
+      "id": 8,
+      "name": "LLM-Powered Application Development",
+      "icon": "/img/home/certified1.svg"
+    },
+    {
+    "id": 9,
+    "name": "Prompt Engineering",
+    "icon": "/img/home/certified1.svg"
+  },
+  {
+    "id": 10,
+    "name": "AI Fundamentals",
+    "icon": "/img/home/certified2.svg"
+  },
+  {
+    "id": 11,
+    "name": "API Integration",
+    "icon": "/img/home/certified3.svg"
+  },
+  {
+    "id": 12,
+    "name": "ChatGPT for Business",
+    "icon": "/img/home/certified4.svg"
+  },
+  {
+    "id": 13,
+    "name": "Financial Forecasting",
+    "icon": "/img/home/certified5.svg"
+  },
+  {
+    "id": 14,
+    "name": "Business Intelligence",
+    "icon": "/img/home/certified6.svg"
+  },
+  {
+    "id": 15,
+    "name": "Advanced Modeling",
+    "icon": "/img/home/certified7.svg"
+  },
+  {
+    "id": 16,
+    "name": "Model Deployment",
+    "icon": "/img/home/certified8.svg"
+  },{
+    "id": 17,
+    "name": "Predictive Modeling Basics",
+    "icon": "/img/home/predictive1.svg"
+  },
+  {
+    "id": 18,
+    "name": "Regression Analysis",
+    "icon": "/img/home/predictive2.svg"
+  },
+  {
+    "id": 19,
+    "name": "Classification Techniques",
+    "icon": "/img/home/predictive3.svg"
+  },
+  {
+    "id": 20,
+    "name": "Model Evaluation Metrics",
+    "icon": "/img/home/predictive4.svg"
+  },
+  {
+    "id": 21,
+    "name": "Feature Engineering",
+    "icon": "/img/home/predictive5.svg"
+  },
+  {
+    "id": 22,
+    "name": "Advanced Tree-Based Models",
+    "icon": "/img/home/predictive6.svg"
+  },
+  {
+    "id": 23,
+    "name": "Time Series Forecasting",
+    "icon": "/img/home/predictive7.svg"
+  },
+  {
+    "id": 24,
+    "name": "Model Deployment & MLOps",
+    "icon": "/img/home/predictive8.svg"
+  },{
+    "id": 25,
+    "name": "Generative AI Foundations",
+    "icon": "/img/home/genai1.svg"
+  },
+  {
+    "id": 26,
+    "name": "Advanced AI Concepts",
+    "icon": "/img/home/genai2.svg"
+  },
+  {
+    "id": 27,
+    "name": "OpenAI API Integration",
+    "icon": "/img/home/genai3.svg"
+  },
+  {
+    "id": 28,
+    "name": "ChatGPT for Business",
+    "icon": "/img/home/genai4.svg"
+  },
+  {
+    "id": 29,
+    "name": "AI-Powered Financial Analysis",
+    "icon": "/img/home/genai5.svg"
+  },
+  {
+    "id": 30,
+    "name": "Advanced BI & Reporting",
+    "icon": "/img/home/genai6.svg"
+  },
+  {
+    "id": 31,
+    "name": "Sales Forecasting with AI",
+    "icon": "/img/home/genai7.svg"
+  },
+  {
+    "id": 32,
+    "name": "AI for Strategic Planning",
+    "icon": "/img/home/genai8.svg"
+  }
+  ]

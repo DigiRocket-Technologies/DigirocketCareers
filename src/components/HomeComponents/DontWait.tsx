@@ -9,28 +9,28 @@ const DontWait = () => {
     {
       id: 1,
       title: "Explosive Job Growth Across Industries",
-      img: "/img/dropshipping/winning product research-100.jpg",
+      img: "/img/home/Explosive Job Growth Across Industries.jpg",
       description:
         "From healthcare and finance to marketing and logistics, companies across sectors are hiring AI professionals at record speed. The global AI job market is projected to grow by over 35% annually in the coming years.",
     },
     {
       id: 2,
       title: "High-Paying Career Opportunities",
-      img: "/img/dropshipping/supplier sourcing and logistic-100.jpg",
+      img: "/img/home/High-Paying Career Opportunities 1.jpg",
       description:
         "AI roles such as Prompt Engineers, AI Specialists, and Data Scientists are among the top-paying tech jobs worldwide. Skilled professionals are commanding premium salaries—even at entry levels.",
     },
     {
       id: 3,
       title: "AI Is Becoming a Core Business Function",
-      img: "/img/dropshipping/custom store and website development-100.jpg",
+      img: "/img/home/AI Is Becoming a Core Business Function 1.jpg",
       description:
         "AI is no longer just for tech companies. Businesses are using AI for automation, customer insights, personalization, and more. Knowing AI makes you valuable in nearly every modern workplace.",
     },
     {
       id: 4,
       title: "The Skill Gap Is Huge—And You Can Fill It",
-      img: "/img/dropshipping/brand positioning-100.jpg",
+      img: "/img/home/The Skill Gap Is Huge—And You Can Fill It.jpg",
       description:
         "While demand is soaring, there’s a global shortage of AI-trained talent. That means less competition and more opportunity for those who upskill early.",
     },
