@@ -1,5 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { X, User, Mail, Phone, BookOpen, Send, CheckCircle, ChevronDown } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import {
+  X,
+  User,
+  Mail,
+  Phone,
+  BookOpen,
+  Send,
+  CheckCircle,
+  ChevronDown,
+} from "lucide-react";
 
 interface FormData {
   name: string;
@@ -22,10 +31,10 @@ interface PopupFormProps {
 
 export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    course: ''
+    name: "",
+    email: "",
+    phone: "",
+    course: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -34,12 +43,12 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
   const [showPopup, setShowPopup] = useState(false);
 
   const courses = [
-    { value: 'llm', label: 'Large Language Models (LLMs)' },
-    { value: 'generative-ai', label: 'Generative AI' },
-    { value: 'agentic-ai', label: 'Agentic AI' },
-    { value: 'predictive-analytics', label: 'Predictive Analytics' },
-    { value: 'ai-fundamentals', label: 'AI Fundamentals' },
-    { value: 'machine-learning', label: 'Machine Learning' }
+    { value: "llm", label: "Large Language Models (LLMs)" },
+    { value: "generative-ai", label: "Generative AI" },
+    { value: "agentic-ai", label: "Agentic AI" },
+    { value: "predictive-analytics", label: "Predictive Analytics" },
+    { value: "ai-fundamentals", label: "AI Fundamentals" },
+    { value: "machine-learning", label: "Machine Learning" },
   ];
 
   useEffect(() => {
@@ -54,23 +63,23 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = "Name is required";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
+      newErrors.email = "Please enter a valid email";
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
+      newErrors.phone = "Phone number is required";
     } else if (!/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
-      newErrors.phone = 'Please enter a valid phone number';
+      newErrors.phone = "Please enter a valid phone number";
     }
 
     if (!formData.course) {
-      newErrors.course = 'Please select a course';
+      newErrors.course = "Please select a course";
     }
 
     setErrors(newErrors);
@@ -79,59 +88,90 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
-    
+
     if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [name]: undefined
+        [name]: undefined,
       }));
     }
   };
 
   const handleCourseSelect = (courseValue: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      course: courseValue
+      course: courseValue,
     }));
     setIsDropdownOpen(false);
     if (errors.course) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        course: undefined
+        course: undefined,
       }));
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
-    
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset and close after success
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', course: '' });
-      onClose();
-    }, 3000);
+    //await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_DOMAIN}api/v1/contact/bookdemo`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      if (!response.ok) {
+        console.log("error");
+        setIsSubmitted(true);
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      setIsSubmitted(true);
+      setIsSubmitting(false);
+      setFormData({ name: "", email: "", phone: "", course: "" });
+      setTimeout(() => {
+        setIsSubmitted(false);
+        onClose();
+      }, 3000);
+
+      const result = await response.json();
+      console.log("Form submission successful:", result);
+      return result;
+    } catch (error) {
+      console.error("Error submitting form:");
+      throw error;
+    }
+
+    // setIsSubmitting(false);
+    // setIsSubmitted(true);
+
+    // // Reset and close after success
+    // setTimeout(() => {
+    //   setIsSubmitted(false);
+    //   setFormData({ name: "", email: "", phone: "", course: "" });
+    //   onClose();
+    // }, 3000);
   };
 
   const handleClose = () => {
     setShowPopup(false);
     setTimeout(() => {
       onClose();
-      setFormData({ name: '', email: '', phone: '', course: '' });
+      setFormData({ name: "", email: "", phone: "", course: "" });
       setErrors({});
       setIsSubmitted(false);
     }, 300);
@@ -139,25 +179,27 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  const selectedCourse = courses.find(course => course.value === formData.course);
+  const selectedCourse = courses.find(
+    (course) => course.value === formData.course
+  );
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
       {/* Backdrop */}
-      <div 
+      <div
         className={`absolute inset-0 bg-white opacity-60 transition-opacity duration-500 ${
-          showPopup ? 'bg-opacity-50' : 'bg-opacity-0'
+          showPopup ? "bg-opacity-50" : "bg-opacity-0"
         }`}
         onClick={handleClose}
       />
-      
+
       {/* Popup Container */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div 
+        <div
           className={`relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 pointer-events-auto  transform transition-all duration-700 ease-out ${
-            showPopup 
-              ? 'translate-x-0 translate-y-0 scale-100 opacity-100' 
-              : 'translate-x-80 translate-y-80 scale-75 opacity-0'
+            showPopup
+              ? "translate-x-0 translate-y-0 scale-100 opacity-100"
+              : "translate-x-80 translate-y-80 scale-75 opacity-0"
           }`}
         >
           {/* Close Button */}
@@ -174,9 +216,12 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
               <div className="w-20 h-20 bg-[#c9f21d] rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
                 <CheckCircle className="w-10 h-10 text-white" />
               </div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Enrollment Successful!</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                Enrollment Successful!
+              </h2>
               <p className="text-gray-600 text-lg">
-                Thank you for choosing SS Prodigy! We'll contact you soon with course details.
+                Thank you for choosing SS Prodigy! We'll contact you soon with
+                course details.
               </p>
             </div>
           )}
@@ -200,7 +245,9 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
                         value={formData.name}
                         onChange={handleInputChange}
                         className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#c9f21d] ${
-                          errors.name ? 'border-red-400 bg-red-50' : 'border-gray-200 focus:border-[#c9f21d]'
+                          errors.name
+                            ? "border-red-400 bg-red-50"
+                            : "border-gray-200 focus:border-[#c9f21d]"
                         }`}
                         placeholder="Enter your full name"
                       />
@@ -223,13 +270,17 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
                         value={formData.email}
                         onChange={handleInputChange}
                         className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#c9f21d] ${
-                          errors.email ? 'border-red-400 bg-red-50' : 'border-gray-200 focus:border-[#c9f21d]'
+                          errors.email
+                            ? "border-red-400 bg-red-50"
+                            : "border-gray-200 focus:border-[#c9f21d]"
                         }`}
                         placeholder="Enter your email"
                       />
                     </div>
                     {errors.email && (
-                      <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.email}
+                      </p>
                     )}
                   </div>
 
@@ -246,13 +297,17 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#c9f21d] ${
-                          errors.phone ? 'border-red-400 bg-red-50' : 'border-gray-200 focus:border-[#c9f21d]'
+                          errors.phone
+                            ? "border-red-400 bg-red-50"
+                            : "border-gray-200 focus:border-[#c9f21d]"
                         }`}
                         placeholder="Enter your phone number"
                       />
                     </div>
                     {errors.phone && (
-                      <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.phone}
+                      </p>
                     )}
                   </div>
 
@@ -267,15 +322,21 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
                         type="button"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         className={`w-full pl-12 pr-12 py-3 border-2 rounded-xl text-left transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#c9f21d] ${
-                          errors.course ? 'border-red-400 bg-red-50' : 'border-gray-200 focus:border-[#c9f21d]'
+                          errors.course
+                            ? "border-red-400 bg-red-50"
+                            : "border-gray-200 focus:border-[#c9f21d]"
                         }`}
                       >
-                        {selectedCourse ? selectedCourse.label : 'Choose a course'}
+                        {selectedCourse
+                          ? selectedCourse.label
+                          : "Choose a course"}
                       </button>
-                      <ChevronDown className={`absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 transition-transform duration-300 ${
-                        isDropdownOpen ? 'rotate-180' : ''
-                      }`} />
-                      
+                      <ChevronDown
+                        className={`absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                          isDropdownOpen ? "rotate-180" : ""
+                        }`}
+                      />
+
                       {/* Dropdown Menu */}
                       {isDropdownOpen && (
                         <div className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-lg z-20 max-h-48 overflow-y-auto">
@@ -293,7 +354,9 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
                       )}
                     </div>
                     {errors.course && (
-                      <p className="mt-1 text-sm text-red-600">{errors.course}</p>
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.course}
+                      </p>
                     )}
                   </div>
 
@@ -303,8 +366,8 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
                     disabled={isSubmitting}
                     className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#c9f21d] ${
                       isSubmitting
-                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                        : 'bg-gradient-to-r from-[#c9f21d] to-[#c9f21d] hover:from-[#c9f21d] hover:to-[#c9f21d] text-white shadow-lg hover:shadow-xl'
+                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                        : "bg-gradient-to-r from-[#c9f21d] to-[#c9f21d] hover:from-[#c9f21d] hover:to-[#c9f21d] text-white shadow-lg hover:shadow-xl"
                     }`}
                   >
                     {isSubmitting ? (
