@@ -1,5 +1,3 @@
-//
-
 import { useState } from "react";
 import { Menu, X, Mail, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -33,7 +31,7 @@ const HomeNavbar = () => {
             {" "}
             <div className="flex items-center">
               <div className="flex items-center space-x-2">
-                <img src="/img/home/logo.png" className="w-[200px]" alt="" />
+                <img src="/img/home/logo.png" className="w-[60px]" alt="" />
               </div>
             </div>
           </Link>
@@ -204,7 +202,7 @@ const HomeNavbar = () => {
               {/* Mobile contact info */}
               <div className="md:hidden flex items-center space-x-2 py-2 text-sm text-gray-300">
                 <Mail size={16} />
-                <span>contact@DigiRocket.org</span>
+                <span>contact@SS Prodigy.org</span>
               </div>
 
               {/* Mobile buttons */}

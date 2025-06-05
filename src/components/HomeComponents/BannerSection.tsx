@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { PopupForm } from "./BookDemo";
+
 const BannerSection = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   return (
     <div className="relative slanted  w-screen overflow-hidden">
       {/* Main hero container */}
@@ -31,8 +36,8 @@ const BannerSection = () => {
                 View Courses
               </a>
 
-              <a
-                href="#demo"
+              <button
+                onClick={()=>setIsPopupOpen(true)}
                 className="flex items-center bg-[#C9F21D] hover:bg-[#C9F21D] text-xl text-white px-6 py-3 font-medium rounded-md transition duration-300"
               >
                 Book Free Demo
@@ -49,7 +54,7 @@ const BannerSection = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -66,7 +71,7 @@ const BannerSection = () => {
           </div>
         </div>
       </div>
-
+      <PopupForm isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
       {/* Diagonal bottom border */}
     </div>
   );

@@ -4,13 +4,14 @@ import {
 import { useNavigate } from "react-router-dom";
 
 
+
 const Programs = () => {
 
   const navigate=useNavigate();
 
   return (
     <>
-      <section className="bg-gray-50 py-16 px-4">
+      <section id="courses" className="bg-gray-50 py-16 px-4">
         
         <div className="max-w-6xl mx-auto">
           {/* Header Section */}

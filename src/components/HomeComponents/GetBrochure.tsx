@@ -17,14 +17,7 @@ const GetBrochure = () => {
         {/* Left side - Form content */}
         <div className="p-8 flex flex-col justify-between w-full md:w-1/2">
           {/* Logo */}
-          <div className="mb-6">
-            <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center">
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-                <div className="transform rotate-45 w-4 h-4 border-t-2 border-r-2 border-black"></div>
-              </div>
-            </div>
-          </div>
-
+         
           {/* Main content */}
           <div>
             <h2 className="text-4xl font-bold mb-6 text-gray-800">

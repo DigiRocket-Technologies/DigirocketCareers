@@ -2,42 +2,42 @@
     {
       "id": 1,
       "name": "Prompt Engineering",
-      "icon": "/img/home/certified1.svg"
+      "icon": "/img/programs/LLM/prompt.svg"
     },
     {
       "id": 2,
       "name": "LLM Workflow Automation",
-      "icon": "/img/home/certified1.svg"
+      "icon": "/img/programs/LLM/prompt.svg"
     },
     {
       "id": 3,
       "name": "RAG System Development",
-      "icon": "/img/home/certified1.svg"
+      "icon": "/img/programs/LLM/prompt.svg"
     },
     {
       "id": 4,
       "name": "Fine-Tuning LLMs",
-      "icon": "/img/home/certified1.svg"
+      "icon": "/img/programs/LLM/prompt.svg"
     },
     {
       "id": 5,
       "name": "Data Engineering for AI",
-      "icon": "/img/home/certified1.svg"
+      "icon": "/img/programs/LLM/prompt.svg"
     },
     {
       "id": 6,
       "name": "Vector Database Management",
-      "icon": "/img/home/certified1.svg"
+      "icon": "/img/programs/LLM/prompt.svg"
     },
     {
       "id": 7,
       "name": "API Integration with LLMs",
-      "icon": "/img/home/certified1.svg"
+      "icon": "/img/programs/LLM/prompt.svg"
     },
     {
       "id": 8,
       "name": "LLM-Powered Application Development",
-      "icon": "/img/home/certified1.svg"
+      "icon": "/img/programs/LLM/prompt.svg"
     },
     {
     "id": 9,
