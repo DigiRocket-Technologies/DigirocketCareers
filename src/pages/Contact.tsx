@@ -100,6 +100,7 @@ const Contact = () => {
       console.log("Form submission successful:", result);
       return result;
     } catch (error) {
+      setIsSubmitting(false);
       console.error("Error submitting form:");
       throw error;
     }
