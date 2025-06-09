@@ -105,7 +105,6 @@ const Contact = () => {
       throw error;
     }
 
-    // setIsSubmitting(false);
     // setIsSubmitted(true);
 
     //Reset form after success message
