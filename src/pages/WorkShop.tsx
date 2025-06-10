@@ -15,6 +15,7 @@ interface FormErrors {
   email?: string;
   phone?: string;
 }
+
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 const Workshop = () => {

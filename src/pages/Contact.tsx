@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Mail, Phone, User, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, User, Send,} from "lucide-react";
 import HomeNavbar from "../components/HomeComponents/HomeNavbar";
 import Footer from "../components/Footer";
 
@@ -22,7 +22,6 @@ const Contact = () => {
     phone: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = (): boolean => {
@@ -71,11 +70,9 @@ const Contact = () => {
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    //await new Promise(resolve => setTimeout(resolve, 1500));
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_DOMAIN}api/v1/contact/contact-us`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/contact/contact-us`,
         {
           method: "POST",
           headers: {
@@ -84,45 +81,20 @@ const Contact = () => {
           body: JSON.stringify(formData),
         }
       );
-      if (!response.ok) {
-        console.log("error");
-        setIsSubmitted(true);
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      setIsSubmitted(true);
+
+      const data = await response.json();
+      
+      if(!data?.success)
+      throw new Error(data?.message)
+
       setIsSubmitting(false);
       setFormData({ name: "", email: "", phone: "" });
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 3000);
-
-      const result = await response.json();
-      console.log("Form submission successful:", result);
-      return result;
-    } catch (error) {
+    } catch (err) {
       setIsSubmitting(false);
-      console.error("Error submitting form:");
-      throw error;
+      console.error("Error submitting form:",err);
     }
-
-    //Reset form after success message
   };
 
-  if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-white via-lime-50 to-lime-100 flex items-center justify-center p-4">
-        <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full text-center transform animate-pulse">
-          <div className="w-20 h-20 bg-lime-400 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-10 h-10 text-white" />
-          </div>
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Thank You!</h2>
-          <p className="text-gray-600 text-lg">
-            Your message has been sent successfully. We'll get back to you soon!
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <>

@@ -122,11 +122,9 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    //await new Promise(resolve => setTimeout(resolve, 2000));
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_DOMAIN}api/v1/contact/bookdemo`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/contact/bookdemo`,
         {
           method: "POST",
           headers: {
@@ -135,36 +133,16 @@ export const PopupForm: React.FC<PopupFormProps> = ({ isOpen, onClose }) => {
           body: JSON.stringify(formData),
         }
       );
-      if (!response.ok) {
-        console.log("error");
-        setIsSubmitted(true);
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      setIsSubmitted(true);
+      const data = await response.json();
+      if (!data?.success) throw new Error(data?.message);
+
       setIsSubmitting(false);
+      setIsSubmitted(true);
       setFormData({ name: "", email: "", phone: "", course: "" });
-      setTimeout(() => {
-        setIsSubmitted(false);
-        onClose();
-      }, 3000);
-
-      const result = await response.json();
-      console.log("Form submission successful:", result);
-      return result;
     } catch (error) {
-      console.error("Error submitting form:");
-      throw error;
+      setIsSubmitting(false)
+      console.error("Error submitting form:", error);
     }
-
-    // setIsSubmitting(false);
-    // setIsSubmitted(true);
-
-    // // Reset and close after success
-    // setTimeout(() => {
-    //   setIsSubmitted(false);
-    //   setFormData({ name: "", email: "", phone: "", course: "" });
-    //   onClose();
-    // }, 3000);
   };
 
   const handleClose = () => {
