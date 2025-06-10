@@ -105,6 +105,13 @@ const HomeNavbar = () => {
             </div>
 
             <Link
+              to="/workshop"
+              className="hover:text-[#C9F21D] transition-colors font-medium"
+            >
+              WORKSHOP
+            </Link>
+
+            <Link
               to="/contact-us"
               className="hover:text-[#C9F21D] transition-colors font-medium"
             >
@@ -191,6 +198,13 @@ const HomeNavbar = () => {
                   </div>
                 )}
               </div>
+
+              <Link
+                to="/workshop"
+                className="hover:text-[#C9F21D] transition-colors font-medium"
+              >
+                WORKSHOP
+              </Link>
 
               <Link
                 to="/contact-us"
