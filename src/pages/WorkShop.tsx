@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Calendar, Clock, MapPin, Users, CheckCircle } from "lucide-react";
+import { Calendar, Clock, MapPin,  } from "lucide-react";
 import HomeNavbar from "../components/HomeComponents/HomeNavbar";
 import Footer from "../components/Footer";
 import { loadStripe } from "@stripe/stripe-js";
