@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Calendar, Clock, MapPin,  } from "lucide-react";
+import { Calendar, Clock, MapPin } from "lucide-react";
 import HomeNavbar from "../components/HomeComponents/HomeNavbar";
 import Footer from "../components/Footer";
 import { loadStripe } from "@stripe/stripe-js";
@@ -64,7 +64,9 @@ const Workshop = () => {
     return newErrors;
   };
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
+  const handleSubmit = async (
+    e: React.MouseEvent<HTMLButtonElement>
+  ): Promise<void> => {
     e.preventDefault();
     const newErrors = validateForm();
 
@@ -90,7 +92,7 @@ const Workshop = () => {
       );
 
       const data = await response.json();
-      console.log(data)
+      console.log(data);
 
       if (!data?.success) throw new Error(data?.message);
 
@@ -112,6 +114,71 @@ const Workshop = () => {
       console.error("Error submitting form:", err);
     }
   };
+  interface ReasonCardProps {
+    title: string;
+    description: string;
+    icon: string;
+  }
+
+  const ReasonCard: React.FC<ReasonCardProps> = ({
+    title,
+    description,
+    icon,
+  }) => {
+    return (
+      <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100">
+        <div className="flex items-center mb-4">
+          <div
+            className="w-12 h-12 rounded-full flex items-center justify-center text-2xl mr-4"
+            style={{ backgroundColor: "#c9f21d" }}
+          >
+            {icon}
+          </div>
+          <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
+        </div>
+        <p className="text-gray-600 leading-relaxed">{description}</p>
+      </div>
+    );
+  };
+
+  const reasons = [
+    {
+      title: "Learn New Skills",
+      description:
+        "Gain hands-on experience with cutting-edge technologies and industry best practices that will boost your career.",
+      icon: "🎓",
+    },
+    {
+      title: "Expert Guidance",
+      description:
+        "Learn directly from industry professionals with years of real-world experience and proven track records.",
+      icon: "👨‍🏫",
+    },
+    {
+      title: "Networking Opportunities",
+      description:
+        "Connect with like-minded professionals, build lasting relationships, and expand your professional network.",
+      icon: "🤝",
+    },
+    {
+      title: "Practical Projects",
+      description:
+        "Work on real-world projects that you can add to your portfolio and showcase to potential employers.",
+      icon: "💼",
+    },
+    {
+      title: "Career Growth",
+      description:
+        "Accelerate your career progression with new competencies and certifications that employers value.",
+      icon: "📈",
+    },
+    {
+      title: "Interactive Learning",
+      description:
+        "Engage in collaborative exercises, group discussions, and hands-on activities for better retention.",
+      icon: "🎯",
+    },
+  ];
 
   return (
     <>
@@ -145,7 +212,7 @@ const Workshop = () => {
 
         {/* Main Content */}
         <div className="max-w-6xl mx-auto px-4 py-16">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div id="join-workshop" className="grid md:grid-cols-2 gap-12 items-start">
             {/* Workshop Details */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
@@ -170,18 +237,26 @@ const Workshop = () => {
                 </div>
                 <div className="border-l-4 border-[#c9f21d] pl-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    State Management
+                    Study Acceleration
                   </h3>
                   <p className="text-gray-600">
-                    Learn effective patterns for managing application state.
+                    Integrate AI into your learning workflow
                   </p>
                 </div>
                 <div className="border-l-4 border-[#c9f21d] pl-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    API Integration
+                    Academic Ethics
                   </h3>
                   <p className="text-gray-600">
-                    Connect your frontend to APIs and handle data efficiently.
+                    Use AI responsibly and maintain integrity
+                  </p>
+                </div>
+                <div className="border-l-4 border-[#c9f21d] pl-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Tips and Tricks
+                  </h3>
+                  <p className="text-gray-600">
+                    Advanced Techniques and power-user secrets .
                   </p>
                 </div>
               </div>
@@ -267,15 +342,13 @@ const Workshop = () => {
                 </div>
 
                 <div className="pt-4">
-                  
                   <button
                     disabled={isSubmitted}
                     onClick={handleSubmit}
                     className="w-full bg-[#c9f21d] hover:bg-[#c9f21d] text-gray-900 font-semibold py-4 px-6 rounded-lg transition-colors duration-200 transform hover:scale-105"
                   >
-                   {!isSubmitted?"Register for Workshop":"Loading"}
+                    {!isSubmitted ? "Register for Workshop" : "Loading"}
                   </button>
-
                 </div>
               </div>
 
@@ -283,6 +356,48 @@ const Workshop = () => {
                 <p className="text-sm text-gray-600">
                   By registering, you agree to our terms and conditions.
                 </p>
+              </div>
+            </div>
+          </div>
+          <div className="min-h-screen py-12 px-4">
+            <div className="max-w-6xl mx-auto">
+              {/* Header Section */}
+              <div className="text-center mb-12">
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                  Why Join Our Workshop?
+                </h1>
+                <div
+                  className="w-24 h-1 mx-auto mb-6"
+                  style={{ backgroundColor: "#c9f21d" }}
+                ></div>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Discover the compelling reasons why thousands of professionals
+                  choose our workshops to advance their careers and skills.
+                </p>
+              </div>
+
+              {/* Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {reasons.map((reason, index) => (
+                  <ReasonCard
+                    key={index}
+                    title={reason.title}
+                    description={reason.description}
+                    icon={reason.icon}
+                  />
+                ))}
+              </div>
+
+              {/* Call to Action */}
+              <div className="text-center mt-16">
+                <a href="#join-workshop">
+                  <button
+                    className="px-8 py-4 text-lg font-semibold text-gray-800 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                    style={{ backgroundColor: "#c9f21d" }}
+                  >
+                    Join the Workshop Today
+                  </button>
+                </a>
               </div>
             </div>
           </div>
