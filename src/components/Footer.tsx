@@ -16,7 +16,7 @@ const Footer = () => {
               className="h-12 w-auto object-contain"
             />
             <p className="text-gray-700 text-lg max-w-sm text-left">
-              S.S.Prodigy offers different courses in Digital Marketing based on
+              SS Prodigy offers different courses in Digital Marketing based on
               your Preferences, Time and Career requirements.
             </p>
           </div>
@@ -189,7 +189,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center mt-8 pt-6 border-t border-gray-200">
             <p className="text-gray-500 text-sm">
-              Copyright © 2025 S.S. Prodigy . All Rights Reserved
+              Copyright © 2025 SS Prodigy . All Rights Reserved
             </p>
           </div>
         </div>
