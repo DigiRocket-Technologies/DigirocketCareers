@@ -12,7 +12,7 @@ const GetBrochure = () => {
   // ];
   return (
     <>
-      <div className="flex w-[75%] mt-20 mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+      <div id="get-brochure" className="flex w-[75%] mt-20 mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
         {/* Left side - Form content */}
         <div className="p-8 flex flex-col justify-between w-full md:w-1/2">
           {/* Logo */}

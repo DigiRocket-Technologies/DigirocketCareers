@@ -120,11 +120,11 @@ const HomeNavbar = () => {
           </div>
 
           {/* Right side buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <a href="#get-brochure" className="hidden lg:flex items-center space-x-4">
             <button className="bg-[#C9F21D] hover:bg-[#C9F21D] cursor-pointer px-4 py-2 text-[black] text-lg rounded-lg font-medium transition-colors">
               REQUEST A BROCHURE
             </button>
-          </div>
+          </a>
 
           {/* Mobile menu button */}
           <button
@@ -220,11 +220,11 @@ const HomeNavbar = () => {
               </div>
 
               {/* Mobile buttons */}
-              <div className="flex flex-col space-y-3 pt-4">
+              <a href="#get-brochure" className="flex flex-col space-y-3 pt-4">
                 <button className="bg-[#C9F21D] hover:bg-[#C9F21D] px-6 py-3 rounded-full font-medium transition-colors">
                   REQUEST A BROCHURE
                 </button>
-              </div>
+              </a>
             </div>
           </div>
         )}
