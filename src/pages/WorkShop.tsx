@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import HomeNavbar from "../components/HomeComponents/HomeNavbar";
 import Footer from "../components/Footer";
-import { loadStripe } from "@stripe/stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
+import { loadRazorpay } from "../utils/loadRazorpayScript";
 
 interface FormData {
   name: string;
@@ -16,7 +17,46 @@ interface FormErrors {
   phone?: string;
 }
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
+// const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
+declare global {
+  interface RazorpayResponse {
+    razorpay_payment_id: string;
+    razorpay_order_id: string;
+    razorpay_signature: string;
+  }
+
+  interface RazorpayOptions {
+    key: string;
+    amount: number;
+    currency: string;
+    name: string;
+    description: string;
+    image?: string;
+    order_id: string;
+    handler: (response: RazorpayResponse) => void;
+    prefill?: {
+      name?: string;
+      email?: string;
+      contact?: string;
+    };
+    notes?: Record<string, any>;
+    theme?: {
+      color?: string;
+    };
+    modal?: {
+      ondismiss?: () => void;
+    };
+  }
+
+  interface RazorpayInstance {
+    open(): void;
+    on(event: string, callback: (...args: any[]) => void): void;
+  }
+
+  interface Window {
+    Razorpay: new (options: RazorpayOptions) => RazorpayInstance;
+  }
+}
 
 const Workshop = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -64,7 +104,58 @@ const Workshop = () => {
     return newErrors;
   };
 
-  const handleSubmit = async (
+  // const handleSubmit = async (
+  //   e: React.MouseEvent<HTMLButtonElement>
+  // ): Promise<void> => {
+  //   e.preventDefault();
+  //   const newErrors = validateForm();
+
+  //   if (Object.keys(newErrors).length !== 0) {
+  //     setErrors(newErrors);
+  //     return;
+  //   }
+
+  //   try {
+  //     setIsSubmitted(true);
+
+  //     const response = await fetch(
+  //       `${
+  //         import.meta.env.VITE_BACKEND_URL
+  //       }/api/v1/workshop/create-checkout-session`,
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(formData),
+  //       }
+  //     );
+
+  //     const data = await response.json();
+  //     console.log(data);
+
+  //     if (!data?.success) throw new Error(data?.message);
+
+  //     setIsSubmitted(false);
+  //     setFormData({ name: "", email: "", phone: "" });
+
+  //     const stripe = await stripePromise;
+  //     if (stripe) {
+  //       const { error } = await stripe.redirectToCheckout({
+  //         sessionId: data.sessionId, // Extract session ID from the response URL
+  //       });
+
+  //       if (error) {
+  //         console.error("Error during checkout:", error.message);
+  //       }
+  //     }
+  //   } catch (err) {
+  //     setIsSubmitted(false);
+  //     console.error("Error submitting form:", err);
+  //   }
+  // };
+
+  const handlePayment = async (
     e: React.MouseEvent<HTMLButtonElement>
   ): Promise<void> => {
     e.preventDefault();
@@ -76,12 +167,12 @@ const Workshop = () => {
     }
 
     try {
-      setIsSubmitted(true);
+       setIsSubmitted(true);
 
-      const response = await fetch(
+      const res = await fetch(
         `${
           import.meta.env.VITE_BACKEND_URL
-        }/api/v1/workshop/create-checkout-session`,
+        }/api/v1/workshop/create-razorpay-order`,
         {
           method: "POST",
           headers: {
@@ -91,29 +182,54 @@ const Workshop = () => {
         }
       );
 
-      const data = await response.json();
-      console.log(data);
+      const order = await res.json();
 
-      if (!data?.success) throw new Error(data?.message);
+
+      if (!order?.success) throw new Error(order?.message);
 
       setIsSubmitted(false);
       setFormData({ name: "", email: "", phone: "" });
 
-      const stripe = await stripePromise;
-      if (stripe) {
-        const { error } = await stripe.redirectToCheckout({
-          sessionId: data.sessionId, // Extract session ID from the response URL
-        });
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+        amount: order.amount,
+        currency: order.currency,
+        name: "Data Science Workshop",
+        description: "Exclusive workshop",
+        order_id: order.id,
+        handler: function () {
+          window.location.href = order.success_url;
+        },
+        prefill: {
+          name: order.name,
+          email: order.email,
+          contact: order.phone,
+        },
+        notes: {
+          email: order.email,
+          name: order.name,
+          phone: order.phone,
+        },
+        theme: {
+          color: "#3399cc",
+        },
+        modal: {
+          ondismiss: () => {
+            window.location.href = order.cancel_url;
+          },
+        },
+      };
 
-        if (error) {
-          console.error("Error during checkout:", error.message);
-        }
-      }
+      await loadRazorpay();
+
+      const rzp = new window.Razorpay(options);
+      rzp.open();
     } catch (err) {
       setIsSubmitted(false);
       console.error("Error submitting form:", err);
     }
   };
+
   interface ReasonCardProps {
     title: string;
     description: string;
@@ -212,7 +328,10 @@ const Workshop = () => {
 
         {/* Main Content */}
         <div className="max-w-6xl mx-auto px-4 py-16">
-          <div id="join-workshop" className="grid md:grid-cols-2 gap-12 items-start">
+          <div
+            id="join-workshop"
+            className="grid md:grid-cols-2 gap-12 items-start"
+          >
             {/* Workshop Details */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
@@ -344,7 +463,7 @@ const Workshop = () => {
                 <div className="pt-4">
                   <button
                     disabled={isSubmitted}
-                    onClick={handleSubmit}
+                    onClick={handlePayment}
                     className="w-full bg-[#c9f21d] hover:bg-[#c9f21d] text-gray-900 font-semibold py-4 px-6 rounded-lg transition-colors duration-200 transform hover:scale-105"
                   >
                     {!isSubmitted ? "Register for Workshop" : "Loading"}

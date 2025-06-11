@@ -74,6 +74,14 @@ const Footer = () => {
                       About Us
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      to="/terms-conditions"
+                      className="hover:text-gray-900 transition-colors"
+                    >
+                      Term & Conditions
+                    </Link>
+                  </li>
                   {/* <li>
                     <a
                       href="#"
@@ -82,14 +90,7 @@ const Footer = () => {
                       FAQS
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="hover:text-gray-900 transition-colors"
-                    >
-                      Term & Conditions
-                    </a>
-                  </li>
+                  
                   <li>
                     <a
                       href="#"

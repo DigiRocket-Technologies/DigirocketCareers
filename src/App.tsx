@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import Workshop from "./pages/WorkShop";
 import SuccessPage from "./pages/SuccessPage";
 import FailurePage from "./pages/FailurePage";
+import Terms from "./pages/Terms";
 const App = () => {
   return (
     <Routes>
@@ -27,7 +28,8 @@ const App = () => {
       <Route path="/contact-us" element={<Contact />}></Route>
       <Route path="/workshop" element={<Workshop />}></Route>
       <Route path="/success" element={<SuccessPage />}></Route>
-       <Route path="/failure" element={<FailurePage />}></Route>
+      <Route path="/failure" element={<FailurePage />}></Route>
+      <Route path="/terms-conditions" element={<Terms />}></Route>
     </Routes>
   );
 };
