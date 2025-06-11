@@ -1,16 +1,15 @@
-import { useState } from "react";
 
 const GetBrochure = () => {
-  const [selectedCourse, setSelectedCourse] = useState(
-    "LLM Master Course: Learn all about LLMs",
-  );
+  // const [selectedCourse, setSelectedCourse] = useState(
+  //   "LLM Master Course: Learn all about LLMs",
+  // );
 
-  const courses = [
-    "LLM Master Course: Learn all about LLMs",
-    "Agentic AI: Learn process Automation",
-    "Predictive analysis using data science and ai",
-    "Mastering Generative AI: images, content and it's application",
-  ];
+  // const courses = [
+  //   "LLM Master Course: Learn all about LLMs",
+  //   "Agentic AI: Learn process Automation",
+  //   "Predictive analysis using data science and ai",
+  //   "Mastering Generative AI: images, content and it's application",
+  // ];
   return (
     <>
       <div className="flex w-[75%] mt-20 mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
@@ -29,7 +28,7 @@ const GetBrochure = () => {
             </p>
 
             {/* Form */}
-            <div className="mb-8">
+            {/* <div className="mb-8">
               <label className="block text-gray-700 mb-2 text-xl">
                 Select Course*
               </label>
@@ -55,7 +54,7 @@ const GetBrochure = () => {
                   </svg>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* CTA Button */}
             <div className="flex justify-center items-center">
