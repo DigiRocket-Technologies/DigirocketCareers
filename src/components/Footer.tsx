@@ -22,7 +22,7 @@ const Footer = () => {
           {/* Right: Buttons */}
           <div className="flex gap-4 flex-wrap">
             <a
-              href="/brochure.pdf"
+              href="/pdfs/BROCHURE.pdf" download={true}
               className="flex items-center gap-2 bg-[#c9f21d] text-white px-4 py-3 rounded hover:bg-[#C9F21D] transition"
             >
               <Download className="text-lg" />
