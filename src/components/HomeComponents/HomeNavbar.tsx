@@ -216,7 +216,7 @@ const HomeNavbar = () => {
               {/* Mobile contact info */}
               <div className="md:hidden flex items-center space-x-2 py-2 text-sm text-gray-300">
                 <Mail size={16} />
-                <span>contact@SS Prodigy.org</span>
+                <span>info@ssprodigy.io</span>
               </div>
 
               {/* Mobile buttons */}
