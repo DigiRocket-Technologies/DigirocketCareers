@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Mail, Phone, User, Send,} from "lucide-react";
 import HomeNavbar from "../components/HomeComponents/HomeNavbar";
 import Footer from "../components/Footer";
@@ -94,7 +94,10 @@ const Contact = () => {
       console.error("Error submitting form:",err);
     }
   };
-
+  
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
 
   return (
     <>
@@ -116,7 +119,7 @@ const Contact = () => {
                 <div className="space-y-4">
                   <div className="flex items-center text-lime-100">
                     <Mail className="w-6 h-6 mr-4" />
-                    <span className="text-lg">info@digirocket.io</span>
+                    <span className="text-lg">info@ssprodigy.io</span>
                   </div>
                   <div className="flex items-center text-lime-100">
                     <Phone className="w-6 h-6 mr-4" />

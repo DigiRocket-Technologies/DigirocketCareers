@@ -15,14 +15,14 @@ const Testimonials = () => {
       id: 2,
       name: "Harsh Rawat",
       image: "/img/home/Harsh rawat.jpg",
-      text: "Best Digital Marketing Career Academy among all! I suggest all my friends about SS Prodigy. They provide depth course module both technically and strategically. Happy to be a part of SS Prodigy.",
+      text: "Best Artificial Intelligence Career Academy among all! I suggest all my friends about SS Prodigy. They provide depth course module both technically and strategically. Happy to be a part of SS Prodigy.",
       rating: 5,
     },
     {
       id: 3,
       name: "Kimz Hname",
       image: "/img/home/kimnz hamne.jpg",
-      text: "If you are looking for an institute which helps you learn digital marketing, then you must consider SS Prodigy. They are the best in this field.",
+      text: "If you are looking for an institute which helps you learn Artificial Intelligence, then you must consider SS Prodigy. They are the best in this field.",
       rating: 5,
     },
     {
@@ -36,7 +36,7 @@ const Testimonials = () => {
       id: 5,
       name: "Rohit Kumar",
       image: "/img/home/Rohit kumar.jpg",
-      text: "Excellent training institute for digital marketing. The course content is up-to-date and the faculty is very experienced. Highly recommended for career growth.",
+      text: "Excellent training institute for Artificial Intelligence. The course content is up-to-date and the faculty is very experienced. Highly recommended for career growth.",
       rating: 5,
     },
   ];

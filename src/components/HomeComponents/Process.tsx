@@ -1,6 +1,8 @@
-
+import { useState } from "react";
+import { PopupForm } from "./BookDemo";
 
 const Process = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   return (
     <section className="bg-gray-50 py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -63,13 +65,15 @@ const Process = () => {
         </div>
       </div>
       <div className="w-[60%] text-center text-xl mt-6 mx-auto">
-          Are you ready? Join our Digital Marketing Institute now. 
-     </div>
-     <div className="flex justify-center item-center mt-4">
-            <button className="bg-[#C9F21D] hover:bg-[#C9F21D] cursor-pointer px-4 py-2 text-[black] text-lg rounded-lg font-medium transition-colors">
-             START WITH FREE DEMO
-            </button>
-     </div>
+        Are you ready? Join our Artificial Intelligence Institute now.
+      </div>
+      <div className="flex justify-center item-center mt-4">
+        <button onClick={()=>setIsPopupOpen(true)} className="bg-[#C9F21D] hover:bg-[#C9F21D] cursor-pointer px-4 py-2 text-[black] text-lg rounded-lg font-medium transition-colors">
+          START WITH FREE DEMO
+        </button>
+      </div>
+
+      <PopupForm isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </section>
   );
 };

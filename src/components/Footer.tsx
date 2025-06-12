@@ -1,11 +1,8 @@
-import {  Download, PhoneCall } from "lucide-react";
+import { Download, PhoneCall } from "lucide-react";
 import { Link } from "react-router-dom";
-;
-
 const Footer = () => {
   return (
     <>
-   
       <section className="bg-white mt-20 py-8">
         <div className="w-[90%] mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-6">
           {/* Left: Logo and Text */}
@@ -16,8 +13,9 @@ const Footer = () => {
               className="h-12 w-auto object-contain"
             />
             <p className="text-gray-700 text-lg max-w-sm text-left">
-              SS Prodigy offers different courses in Digital Marketing based on
-              your Preferences, Time and Career requirements.
+              SS Prodigy offers a variety of Artificial Intelligence courses
+              designed to suit different learning paths and professional
+              aspirations
             </p>
           </div>
 
@@ -44,20 +42,17 @@ const Footer = () => {
         <div className="w-[90%] mx-auto">
           <div className="w-full grid grid-cols-1 md:grid-cols-2  gap-8 mb-12">
             {/* Location Sections */}
-        
-          
 
-              <div>
-                <h3 className="text-gray-900 font-semibold text-lg mb-4">
-                  India
-                </h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  9A, Tower B4, SPAZE ITECH
-                  <br />
-                  PARK, Sector 49, Gurugram
-                </p>
-              </div>
-         
+            <div>
+              <h3 className="text-gray-900 font-semibold text-lg mb-4">
+                India
+              </h3>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                9A, Tower B4, SPAZE ITECH
+                <br />
+                PARK, Sector 49, Gurugram
+              </p>
+            </div>
 
             {/* Useful Links */}
             <div className="grid grid-cols-1 md:grid-cols-2">
@@ -74,14 +69,14 @@ const Footer = () => {
                       About Us
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link
                       to="/terms-conditions"
                       className="hover:text-gray-900 transition-colors"
                     >
                       Term & Conditions
                     </Link>
-                  </li>
+                  </li> */}
                   {/* <li>
                     <a
                       href="#"
@@ -158,7 +153,7 @@ const Footer = () => {
                 +1 815 688 6366
               </a> */}
             </div>
-{/* 
+            {/* 
             <div className="flex items-center gap-4">
               <a
                 href="#"

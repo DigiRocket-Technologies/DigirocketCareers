@@ -68,11 +68,7 @@ const LLMMaster = () => {
           core concepts to building production-ready AI applications through
           fine-tuning and automation.
         </div>
-        <div className="flex mt-4 justify-center items-center">
-          <button className="bg-[#C9F21D] hover:bg-[#C9F21D] cursor-pointer px-4 py-2 text-[black] text-lg rounded-lg font-medium transition-colors">
-            GET BROCHURE
-          </button>
-        </div>
+       
       </div>
       <Course />
       <Skills start={0} end={8} />

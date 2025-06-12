@@ -98,11 +98,7 @@ const GenerativeAI = () => {
           applications, building practical skills in AI implementation, data
           analysis, and business intelligence automation.
         </div>
-        <div className="flex mt-4 justify-center items-center">
-          <button className="bg-[#C9F21D] hover:bg-[#C9F21D] cursor-pointer px-4 py-2 text-[black] text-lg rounded-lg font-medium transition-colors">
-            GET BROCHURE
-          </button>
-        </div>
+        
       </div>
       <GenerativeCurriculum />
       <Skills start={24} end={32}/>

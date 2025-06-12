@@ -100,11 +100,7 @@ const AgenticAI = () => {
           understanding core concepts to building sophisticated marketing
           automation systems that work autonomously.
         </div>
-        <div className="flex mt-4 justify-center items-center">
-          <button className="bg-[#C9F21D] hover:bg-[#C9F21D] cursor-pointer px-4 py-2 text-[black] text-lg rounded-lg font-medium transition-colors">
-            GET BROCHURE
-          </button>
-        </div>
+        
       </div>
       <AgenticCurriculum />
       <Skills start={8} end={16}/>

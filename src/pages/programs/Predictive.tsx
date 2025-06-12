@@ -100,11 +100,7 @@ const Predictive = () => {
           machine learning, and deep learning techniques through real-world
           projects and case studies.
         </div>
-        <div className="flex mt-4 justify-center items-center">
-          <button className="bg-[#C9F21D] hover:bg-[#C9F21D] cursor-pointer px-4 py-2 text-[black] text-lg rounded-lg font-medium transition-colors">
-            GET BROCHURE
-          </button>
-        </div>
+        
       </div>
       <PredictiveCurriculum />
       <Skills start={16} end={24}/>

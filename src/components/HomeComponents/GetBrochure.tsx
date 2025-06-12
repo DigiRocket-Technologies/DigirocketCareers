@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 
 const GetBrochure = () => {
+  const navigate=useNavigate()
   // const [selectedCourse, setSelectedCourse] = useState(
   //   "LLM Master Course: Learn all about LLMs",
   // );
@@ -58,8 +61,8 @@ const GetBrochure = () => {
 
             {/* CTA Button */}
             <div className="flex justify-center items-center">
-              <button className="w-[60%] mx-auto text-xl bg-[#C9F21D] hover:bg-[#C9F21D] text-white font-semibold py-3 px-3 rounded transition duration-300">
-                Get Brochure
+              <button onClick={()=>navigate("/contact-us")} className="cursor-pointer w-[60%] mx-auto text-xl bg-[#C9F21D] hover:bg-[#C9F21D] text-white font-semibold py-3 px-3 rounded transition duration-300">
+                Contact Us
               </button>
             </div>
           </div>
@@ -71,7 +74,7 @@ const GetBrochure = () => {
 
           <div className="h-full flex items-center justify-center">
             <img
-              src="/img/home/brochure-girl.jpg"
+              src="/img/home/brochure-girl.png"
               alt="Student pointing at educational content"
               className="h-full object-cover"
             />
