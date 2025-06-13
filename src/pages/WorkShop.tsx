@@ -167,7 +167,7 @@ const Workshop = () => {
     }
 
     try {
-       setIsSubmitted(true);
+      setIsSubmitted(true);
 
       const res = await fetch(
         `${
@@ -183,7 +183,6 @@ const Workshop = () => {
       );
 
       const order = await res.json();
-
 
       if (!order?.success) throw new Error(order?.message);
 
@@ -306,9 +305,9 @@ const Workshop = () => {
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
               Generative AI Workshop
             </h1>
-            <p className="text-xl md:text-2xl text-gray-800 mb-8">
+            {/* <p className="text-xl md:text-2xl text-gray-800 mb-8">
               From Zero To Hero
-            </p>
+            </p> */}
             <div className="flex flex-wrap justify-center gap-6 text-gray-800">
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
