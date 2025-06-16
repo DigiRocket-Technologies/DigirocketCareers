@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Mail, Phone, User, Send,} from "lucide-react";
+import { Mail, Phone, User, Send } from "lucide-react";
 import HomeNavbar from "../components/HomeComponents/HomeNavbar";
 import Footer from "../components/Footer";
 
@@ -83,21 +83,20 @@ const Contact = () => {
       );
 
       const data = await response.json();
-      
-      if(!data?.success)
-      throw new Error(data?.message)
+
+      if (!data?.success) throw new Error(data?.message);
 
       setIsSubmitting(false);
       setFormData({ name: "", email: "", phone: "" });
     } catch (err) {
       setIsSubmitting(false);
-      console.error("Error submitting form:",err);
+      console.error("Error submitting form:", err);
     }
   };
-  
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  },[])
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -123,7 +122,7 @@ const Contact = () => {
                   </div>
                   <div className="flex items-center text-lime-100">
                     <Phone className="w-6 h-6 mr-4" />
-                    <span className="text-lg">+1 815 688 6366</span>
+                    <span className="text-lg">+91 9871196816</span>
                   </div>
                 </div>
               </div>
